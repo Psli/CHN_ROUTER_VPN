@@ -666,7 +666,7 @@ function set_iptables()
     iptables -t nat -A SHADOWSOCKS -d 224.0.0.0/4 -j RETURN
     iptables -t nat -A SHADOWSOCKS -d 240.0.0.0/4 -j RETURN
 
-    wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -F\| '/CN\|ipv4/ { printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > $cur_dir/ignore.list
+    wget -O- 'https://gist.githubusercontent.com/Psli/e75a0cda9eb015ce69e6/raw/c9eed8084ec8b8928a5227756d0503750d84c059/delegated-apnic-latest' | awk -F\| '/CN\|ipv4/ { printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > $cur_dir/ignore.list
 
     while read -r line
     do
