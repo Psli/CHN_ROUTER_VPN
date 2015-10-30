@@ -610,8 +610,11 @@ EOF
 : XAUTH "myXAUTHPass"
 myUserName %any : EAP "myUserPass"
 EOF
-
-    ipsec start
+wget -O /etc/init.d/strongswan https://raw.githubusercontent.com/strongswan/strongswan/master/packages/strongswan/debian/strongswan-starter.ipsec.init
+sed -i 's|DAEMON=/usr/sbin|DAEMON=/usr/local/sbin|' /etc/init.d/strongswan
+chmod +x /etc/init.d/strongswan
+service strongswan start
+ #ipsec start
 }
 
 function set_iptables()
