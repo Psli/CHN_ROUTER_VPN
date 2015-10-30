@@ -188,7 +188,7 @@ EOF
 
 function install_ss_libev()
 {
-    cd $cur_dir/shadowsocks-libev-master/
+   # cd $cur_dir/shadowsocks-libev-master/
     if [ "$system_str" = "0" ]; then
         install_ss_libev_CentOS
     else
@@ -261,7 +261,7 @@ function install_ss_libev_Ubuntu()
     # Build and Install shadowsocks-libev
     if [ -s /usr/local/bin/ss-redir ];then
         echo "shadowsocks-libev has been installed!"
-        exit 0
+       # exit 0
     else
         # download ss
         if [ -f shadowsocks-libev.zip ];then
